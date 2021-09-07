@@ -1,6 +1,6 @@
-# 2048
+# Naruto 2048: Master of Dojutsu
 
-A fork of the Open Source [GitHub Repository](https://github.com/gabrielecirulli/2048), re-built for custom use and hosted [here](https://slade2048.netlify.app).
+A fork of the Open Source [GitHub Repository](https://github.com/gabrielecirulli/2048), re-built for custom use and hosted [here](https://slade2048.netlify.app). This variant of the game brings in the concept of 2 forms of dojutsu from the Naruto anime series: Sharingan and Rinnegan. Each level merges to something conceptually more powerful. Can you unlock them all?
 
 ## Prerequisites
 
