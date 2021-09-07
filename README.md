@@ -2,6 +2,13 @@
 
 A fork of the Open Source [GitHub Repository](https://github.com/gabrielecirulli/2048), re-built for custom use and hosted [here](https://slade2048.netlify.app).
 
+## Prerequisites
+
+In order to run or develop the game locally, you will need the following dependencies installing:
+
+1. [GNU Make](https://www.gnu.org/software/make/) (Note: Make may already be available. Try running `make --version` in the terminal to check)
+1. [Node Version Manager (nvm)](https://github.com/nvm-sh/nvm#installing-and-updating)
+
 ## Screenshot
 
 <p align="center">
@@ -9,6 +16,23 @@ A fork of the Open Source [GitHub Repository](https://github.com/gabrielecirulli
 </p>
 
 > This screenshot is fake, by the way.
+
+## Getting Started
+
+Before you get started with anything else, make sure you initialize the project using the following command from the root of the repository:
+
+```shell
+$ nvm install
+$ nvm use
+```
+
+To run the game locally, simply run the following command from the terminal in the root of the repository:
+
+```shell
+$ make start
+```
+
+This will launch the game in the default browser. If you make any changes to the game code, you will need to refresh the page as hot reloading is not currently supported.
 
 ## Contributing
 
