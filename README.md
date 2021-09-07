@@ -23,7 +23,6 @@ Before you get started with anything else, make sure you initialize the project 
 
 ```shell
 $ nvm install
-$ nvm use
 ```
 
 To run the game locally, simply run the following command from the terminal in the root of the repository:
