@@ -12,10 +12,8 @@ In order to run or develop the game locally, you will need the following depende
 ## Screenshot
 
 <p align="center">
-  <img src="https://cloud.githubusercontent.com/assets/1175750/8614312/280e5dc2-26f1-11e5-9f1f-5891c3ca8b26.png" alt="Screenshot"/>
+  <img src="images/screenshot.png" alt="Screenshot"/>
 </p>
-
-> This screenshot is fake, by the way.
 
 ## Getting Started
 
