@@ -1,7 +1,7 @@
 function HTMLActuator() {
-  this.tileContainer    = document.querySelector(".tile-container");
-  this.scoreContainer   = document.querySelector(".score-container");
-  this.bestContainer    = document.querySelector(".best-container");
+  this.tileContainer = document.querySelector(".tile-container");
+  this.scoreContainer = document.querySelector(".score-container");
+  this.bestContainer = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
 
   this.score = 0;
@@ -31,7 +31,6 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
         self.message(true); // You win!
       }
     }
-
   });
 };
 
@@ -46,12 +45,63 @@ HTMLActuator.prototype.clearContainer = function (container) {
   }
 };
 
+function getImageSrcForTileValue(value) {
+  switch (value) {
+    case 2:
+      return "1-tomoe";
+
+    case 4:
+      return "2-tomoe";
+
+    case 8:
+      return "3-tomoe";
+
+    case 16:
+      return "itachi";
+
+    case 32:
+      return "obito";
+
+    case 64:
+      return "madara-eternal";
+
+    case 128:
+      return "sasuke";
+
+    case 256:
+      return "sasuke-eternal";
+
+    case 512:
+      return "rinnegan";
+
+    case 1024:
+      return "sasuke-rinnegan";
+
+    case 2048:
+      return "kaguya-rinnegan";
+
+    default:
+      throw Error(`Invalid tile valiue: ${value}`);
+  }
+}
+
+function getImageForTileValue(value) {
+  const imageName = getImageSrcForTileValue(value);
+  const imageSrc = `images/${imageName}.png`;
+
+  const imageElement = document.createElement("img");
+  imageElement.src = imageSrc;
+  imageElement.style = "max-width: -webkit-fill-available;";
+
+  return imageElement;
+}
+
 HTMLActuator.prototype.addTile = function (tile) {
   var self = this;
 
-  var wrapper   = document.createElement("div");
-  var inner     = document.createElement("div");
-  var position  = tile.previousPosition || { x: tile.x, y: tile.y };
+  var wrapper = document.createElement("div");
+  var inner = document.createElement("div");
+  var position = tile.previousPosition || { x: tile.x, y: tile.y };
   var positionClass = this.positionClass(position);
 
   // We can't use classlist because it somehow glitches when replacing classes
@@ -62,7 +112,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+  inner.appendChild(getImageForTileValue(tile.value));
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
@@ -125,7 +175,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 
 HTMLActuator.prototype.message = function (won) {
-  var type    = won ? "game-won" : "game-over";
+  var type = won ? "game-won" : "game-over";
   var message = won ? "You win!" : "Game over!";
 
   this.messageContainer.classList.add(type);
